@@ -6,8 +6,8 @@
 //Exercise 1
 // Mục đích: giải quyết vấn đề ownership and borrowing không dùng clone()
  fn main() {
-       let mut y: u32 = 0;
-     let x = change_value(10,&mut y);
+    
+     let x = change_value(10,&mut 20);
  }
 
  fn change_value(input:u32, output: &mut u32) -> u32{
