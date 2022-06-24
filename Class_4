@@ -15,7 +15,37 @@ fn main() {
         let vec_Foo = StrDisplayable(vec);
         println!("{}",vec_Foo);
 }
+/*----------------------------------------------------*/
+#[derive(Debug)]
+struct Fibonacci {
+    a: u32,
+    b: u32,
+}
 
+impl Iterator for Fibonacci {
+    type Item = u32;
+
+// Trả về số fibonaci tiếp theo dựa trên kiểu dữ liệu struct Fibonacci
+    fn next(&mut self) -> Option<u32> {
+        let next_num = self.a + self.b;
+        self.a = self.b;
+        self.b = next_num;
+        Some(next_num)
+    }
+}
+
+// Khởi tạo ban đầu cho Fibonaci: 0, 1
+fn fibonacci_numbers() -> Fibonacci {
+    Fibonacci { a: 0, b: 1 }
+}
+
+fn main() {
+
+    for number in fibonacci_numbers() {
+        println!("{}", number);
+
+    }
+}
 
 
 
